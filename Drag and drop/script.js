@@ -5,7 +5,13 @@ let button = document.querySelector('button');
 let input = document.getElementById('input-file');
 let preview = document.getElementById('preview');
 
-dropArea.addEventListener(evt, prevDefault);
+['dragover', 'dragleave', 'drop'].forEach(evt => {
+    dropArea.addEventListener(evt, prevDefault);
+    dropArea.addEventListener('dragover', function () {
+        //CODE
+    });
+});
+
 function prevDefault(e) {
     e.preventDefault();
 }
