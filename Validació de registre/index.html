@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>REGISTRE</title>
+</head>
+<body>
+    <form id="formulari">
+        <h1>Registra't aqui <span>cosí</span></h1>
+        <label for="nom"></label>
+        <input placeholder="Nom" type="text" name="nom" id="nom" required/>
+
+        <label for="correu"></label>
+        <input placeholder="Correu electrònic" type="email" name="correu" id="correu" required/>
+        <span id="emailError" style="color: red;"></span>
+
+        <label for="contrasenya"></label>
+        <input placeholder="Contrasenya" type="password" name="contrasenya" id="contrasenya" required/>
+
+        <label for="confirmarContra"></label>
+        <input placeholder="Confirma la contrasenya" type="password" name="confirmarContra" id="confirmarContra" required/>
+
+        <label for="postal"></label>
+        <input placeholder="Codi postal" type="number" name="postal" id="postal" required/>
+
+        <button type="submit" id="submit" class="btn">Registrar-se</button>
+      </form>
+      <script src="script.js"></script>
+</body>
+</html>
