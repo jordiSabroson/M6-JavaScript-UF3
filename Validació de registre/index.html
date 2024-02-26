@@ -1,32 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>REGISTRE</title>
 </head>
+
 <body>
-    <form id="formulari">
+    <form id="formulari" action="action.php" onsubmit="return validarForm()" method="post">
         <h1>Registra't aqui <span>cosí</span></h1>
         <label for="nom"></label>
-        <input placeholder="Nom" type="text" name="nom" id="nom" required/>
+        <input placeholder="Nom" type="text" name="nom" id="nom" required />
 
         <label for="correu"></label>
-        <input placeholder="Correu electrònic" type="email" name="correu" id="correu" required/>
+        <input placeholder="Correu electrònic" type="email" name="correu" id="correu" required />
         <span id="emailError" style="color: red;"></span>
 
         <label for="contrasenya"></label>
-        <input placeholder="Contrasenya" type="password" name="contrasenya" id="contrasenya" required/>
+        <input placeholder="Contrasenya" type="password" name="contrasenya" id="contrasenya" required />
+        <span id="checkPass" hidden>
+            <p id='length'>Ha de tenir entre 8 i 15 caràcters</p>
+            <p id='lower'>Ha de tenir una lletra minúscula</p>
+            <p id='upper'>Ha de tenir una lletra majúscula</p>
+            <p id='number'>Ha de tenir un número</p>
+            <p id='special'>Ha de tenir una caràcter especial</p>
+            <br>
+        </span>
 
         <label for="confirmarContra"></label>
-        <input placeholder="Confirma la contrasenya" type="password" name="confirmarContra" id="confirmarContra" required/>
+        <input placeholder="Confirma la contrasenya" type="password" name="confirmarContra" id="confirmarContra"
+            required />
+        <span id="errorPass"></span>
 
         <label for="postal"></label>
-        <input placeholder="Codi postal" type="number" name="postal" id="postal" required/>
+        <input placeholder="Codi postal" type="number" name="postal" id="postal" required />
 
         <button type="submit" id="submit" class="btn">Registrar-se</button>
-      </form>
-      <script src="script.js"></script>
+    </form>
+    <script src="script.js"></script>
 </body>
+
 </html>
