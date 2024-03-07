@@ -1,21 +1,23 @@
 <?php
 include "base_de_dades.php";
 
-try{
+try {
     $connexio = mysqli_connect(host, database, username, password);
     if ($connexio) {
         $cat = $_POST["cat"];
-        $query = "SELECT name FROM subcategories WHERE catId = '$cat'";
+        $query = "SELECT subId, name FROM subcategories WHERE catId = '$cat'";
         $subcats = mysqli_query($connexio, $query);
 
         // Afegir els resultats de la consulta a un array
         $return = array();
-        $object = new stdClass();
-        $object->name = $row["name"];
-        $object->subId = $row["subId"];
 
-        $return[] = $object;
-
+        while ($row = mysqli_fetch_assoc($subcats)) {
+            $object = new stdClass();
+            $object->subId = $row["subId"];
+            $object->name = $row["name"];
+            $return[] = $object;
+        }
+        
         echo json_encode($return);
     } else {
 
