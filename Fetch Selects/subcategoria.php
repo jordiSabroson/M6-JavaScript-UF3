@@ -2,10 +2,10 @@
 include "base_de_dades.php";
 
 try {
-    $connexio = mysqli_connect(host, database, username, password);
+    $connexio = mysqli_connect(host, username, password, database);
     if ($connexio) {
-        $cat = $_POST["cat"];
-        $query = "SELECT subId, name FROM subcategories WHERE catId = '$cat'";
+        $cat = $_POST["cat1"];
+        $query = "SELECT * FROM Subcategories WHERE catId = $cat;";
         $subcats = mysqli_query($connexio, $query);
 
         // Afegir els resultats de la consulta a un array
@@ -15,7 +15,8 @@ try {
             $object = new stdClass();
             $object->subId = $row["subId"];
             $object->name = $row["name"];
-            $return[] = $object;
+            $object->catId = $row["catId"];
+            array_push($return, $object);
         }
         
         echo json_encode($return);
@@ -25,6 +26,6 @@ try {
 } catch (PDOException $e) {
     echo "Error de connexió en " . database;
 } finally {
-    mysqli_close($connect);
+    mysqli_close($connexio);
 }
 
