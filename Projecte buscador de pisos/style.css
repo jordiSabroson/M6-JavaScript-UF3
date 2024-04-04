@@ -1,0 +1,5 @@
+#feedbackNom, #feedbackCognoms, #feedbackDNI, #feedbackEmail, #feedbackUsername, #feedbackTelf {
+    font-size: 13px;
+    color: red;
+    padding: 5px 0;
+}
